@@ -1,0 +1,6 @@
+{
+  "name": "مزاج | MAZAJ WEAR",
+  "description": "الصفحة الرسمية لعلامة مزاج وير (MAZAJ WEAR) للطباعة والملابس المخصصة في العراق - تيشيرتات، تراكات وهوديات بخامات ممتازة وطباعة احترافية.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

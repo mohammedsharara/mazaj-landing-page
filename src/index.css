@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+:root {
+  --color-brand-amber: #FFA000;
+  --color-brand-amber-hover: #E68A00;
+  --color-brand-amber-light: #FFF8E1;
+  --bg-main: #FAFAFA;
+  --text-main: #111827;
+}
+
+.dark, [data-theme="dark"] {
+  --bg-main: #0D0D0D;
+  --text-main: #F7F4EF;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light dark;
+}
+
+body {
+  font-family: 'Tajawal', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #262626;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FFA000;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #FFA000;
+}

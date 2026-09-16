@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 360" fill="none" class="w-full h-full">
+  <!-- Mazaj Wear Monogram (Golden Amber: #FFA000) -->
+  <g fill="#FFA000">
+    <!-- Pillar 1 (Left): Rounded Pill Top, Flame Flick Bottom -->
+    <path d="
+      M 138 92
+      A 27 27 0 0 1 192 92
+      V 194
+      C 192 208 200 220 226 226
+      C 208 232 188 230 172 222
+      C 152 212 138 196 138 184
+      V 92
+      Z
+    " />
+    
+    <!-- Pillar 2 (Center): Flame Wave Top, Flame Flick Bottom -->
+    <path d="
+      M 222 118
+      C 222 76 242 42 278 36
+      C 276 65 276 90 276 112
+      V 218
+      C 276 232 284 244 310 250
+      C 292 256 272 254 256 246
+      C 236 236 222 220 222 208
+      Z
+    " />
+
+    <!-- Pillar 3 (Right): Flame Wave Top, Rounded Pill Bottom -->
+    <path d="
+      M 306 128
+      C 306 86 326 52 362 46
+      C 360 75 360 100 360 122
+      V 200
+      A 27 27 0 0 1 306 200
+      Z
+    " />
+  </g>
+
+  <!-- Wordmark: MAZAJ WEAR -->
+  <text 
+    x="250" 
+    y="320" 
+    text-anchor="middle" 
+    font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" 
+    font-size="32" 
+    font-weight="900" 
+    letter-spacing="4" 
+    fill="currentColor"
+  >MAZAJ WEAR</text>
+</svg>
