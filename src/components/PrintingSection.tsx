@@ -35,9 +35,9 @@ export const PrintingSection: React.FC<PrintingSectionProps> = ({ onOpenImageStu
         </div>
 
         {/* Visual Showcase Banner */}
-        <div className="mb-14 rounded-2xl overflow-hidden border border-neutral-200 dark:border-[#262626] bg-white dark:bg-[#141414] shadow-sm relative">
-          <div className="grid grid-cols-1 md:grid-cols-3">
-            <div className="relative aspect-[16/9] md:aspect-auto h-48 md:h-64 overflow-hidden border-b md:border-b-0 md:border-l border-neutral-200 dark:border-[#262626] group">
+        <div className="mb-12 sm:mb-14 rounded-2xl overflow-hidden border border-neutral-200 dark:border-[#262626] bg-white dark:bg-[#141414] shadow-sm relative">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="relative aspect-[16/10] sm:aspect-auto h-48 sm:h-56 lg:h-64 overflow-hidden border-b sm:border-b-0 sm:border-l border-neutral-200 dark:border-[#262626] group">
               <img
                 src={step1Img}
                 alt="تجهيز وضبط تفاصيل التصميم الرقمي"
@@ -53,14 +53,14 @@ export const PrintingSection: React.FC<PrintingSectionProps> = ({ onOpenImageStu
                   />
                 </div>
               )}
-              <div className="absolute inset-0 bg-black/40 flex items-end p-4">
+              <div className="absolute inset-0 bg-black/40 flex items-end p-3.5 sm:p-4">
                 <span className="text-xs font-bold text-white bg-black/75 backdrop-blur-sm px-3 py-1.5 rounded-lg">
                   1. معالجة وتجهيز دقيق للملف
                 </span>
               </div>
             </div>
 
-            <div className="relative aspect-[16/9] md:aspect-auto h-48 md:h-64 overflow-hidden border-b md:border-b-0 md:border-l border-neutral-200 dark:border-[#262626] group">
+            <div className="relative aspect-[16/10] sm:aspect-auto h-48 sm:h-56 lg:h-64 overflow-hidden border-b sm:border-b-0 lg:border-l border-neutral-200 dark:border-[#262626] group">
               <img
                 src={step2Img}
                 alt="طباعة فيلم DTF الحديثة عالية الدقة"
@@ -76,14 +76,14 @@ export const PrintingSection: React.FC<PrintingSectionProps> = ({ onOpenImageStu
                   />
                 </div>
               )}
-              <div className="absolute inset-0 bg-black/40 flex items-end p-4">
+              <div className="absolute inset-0 bg-black/40 flex items-end p-3.5 sm:p-4">
                 <span className="text-xs font-black text-[#0D0D0D] bg-[#FFA000] px-3 py-1.5 rounded-lg shadow-sm">
                   2. طباعة DTF بأحبار يابانية أصلية
                 </span>
               </div>
             </div>
 
-            <div className="relative aspect-[16/9] md:aspect-auto h-48 md:h-64 overflow-hidden group">
+            <div className="relative aspect-[16/10] sm:aspect-auto h-48 sm:h-56 lg:h-64 overflow-hidden group sm:col-span-2 lg:col-span-1">
               <img
                 src={step3Img}
                 alt="الكبس الحراري وتثبيت الأحبار في الأقمشة"
@@ -99,7 +99,7 @@ export const PrintingSection: React.FC<PrintingSectionProps> = ({ onOpenImageStu
                   />
                 </div>
               )}
-              <div className="absolute inset-0 bg-black/40 flex items-end p-4">
+              <div className="absolute inset-0 bg-black/40 flex items-end p-3.5 sm:p-4">
                 <span className="text-xs font-bold text-white bg-black/75 backdrop-blur-sm px-3 py-1.5 rounded-lg">
                   3. كبس حراري وفحص الجودة
                 </span>
@@ -108,12 +108,12 @@ export const PrintingSection: React.FC<PrintingSectionProps> = ({ onOpenImageStu
           </div>
         </div>
 
-        {/* 5-Step Process (Horizontal on Desktop, Vertical on Mobile) */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 lg:gap-6 relative">
+        {/* 5-Step Process (Horizontal on Large Desktop, Multi-row grid on Tablet/iPad) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5 relative">
           {PRINTING_STEPS.map((step, idx) => (
             <div
               key={step.number}
-              className="bg-white dark:bg-[#141414] rounded-2xl p-5 border border-neutral-200 dark:border-[#262626] relative flex flex-col hover:border-[#FFA000]/60 dark:hover:border-[#FFA000]/50 shadow-sm transition-all duration-300 group"
+              className="bg-white dark:bg-[#141414] rounded-2xl p-4 sm:p-5 border border-neutral-200 dark:border-[#262626] relative flex flex-col hover:border-[#FFA000]/60 dark:hover:border-[#FFA000]/50 shadow-sm transition-all duration-300 group"
             >
               {/* Step number */}
               <div className="flex items-center justify-between mb-3">
@@ -140,7 +140,7 @@ export const PrintingSection: React.FC<PrintingSectionProps> = ({ onOpenImageStu
 
               {/* Desktop arrow indicator between steps */}
               {idx < PRINTING_STEPS.length - 1 && (
-                <div className="hidden md:block absolute -left-3.5 top-1/2 -translate-y-1/2 z-10 text-neutral-400 dark:text-[#333333]">
+                <div className="hidden lg:block absolute -left-3.5 top-1/2 -translate-y-1/2 z-10 text-neutral-400 dark:text-[#333333]">
                   <ArrowLeft className="w-5 h-5 rtl:rotate-180" />
                 </div>
               )}

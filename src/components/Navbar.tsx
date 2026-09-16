@@ -81,16 +81,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenOrderModal, onOpenImageStu
         </nav>
 
         {/* Action Buttons & Theme Switcher */}
-        <div className="flex items-center gap-2 sm:gap-2.5">
+        <div className="flex items-center gap-1.5 sm:gap-2.5">
           {/* Quick Image Studio Trigger */}
           {onOpenImageStudio && (
             <button
               type="button"
               onClick={onOpenImageStudio}
-              className="inline-flex items-center gap-1.5 text-xs font-black bg-neutral-100 dark:bg-[#1C1C1C] hover:bg-[#FFA000] hover:text-[#0D0D0D] text-neutral-800 dark:text-[#EAEAEA] px-2.5 sm:px-3 py-2 rounded-xl border border-neutral-200 dark:border-[#2D2D2D] transition-all cursor-pointer shadow-xs active:scale-95"
+              className="inline-flex items-center gap-1 text-xs font-black bg-neutral-100 dark:bg-[#1C1C1C] hover:bg-[#FFA000] hover:text-[#0D0D0D] text-neutral-800 dark:text-[#EAEAEA] px-2 sm:px-3 py-2 rounded-xl border border-neutral-200 dark:border-[#2D2D2D] transition-all cursor-pointer shadow-xs active:scale-95"
               title="ترتيب وتغيير صور الموقع"
             >
-              <Camera className="w-3.5 h-3.5 text-[#FFA000] group-hover:text-[#0D0D0D]" />
+              <Camera className="w-3.5 h-3.5 text-[#FFA000] group-hover:text-[#0D0D0D] shrink-0" />
               <span className="hidden sm:inline">صور المتجر</span>
             </button>
           )}
@@ -114,7 +114,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenOrderModal, onOpenImageStu
           <button
             id="header-cta-button"
             onClick={onOpenOrderModal}
-            className="bg-[#FFA000] hover:bg-[#e68a00] text-[#0D0D0D] font-extrabold text-sm sm:text-base px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl transition-all duration-200 shadow-md shadow-[#FFA000]/25 active:scale-95 cursor-pointer whitespace-nowrap"
+            className="bg-[#FFA000] hover:bg-[#e68a00] text-[#0D0D0D] font-extrabold text-xs sm:text-sm md:text-base px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl transition-all duration-200 shadow-md shadow-[#FFA000]/25 active:scale-95 cursor-pointer whitespace-nowrap"
           >
             اطلب الآن
           </button>
@@ -123,7 +123,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenOrderModal, onOpenImageStu
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-neutral-800 dark:text-[#F7F4EF] hover:text-[#FFA000] dark:hover:text-[#FFA000] transition-colors rounded-lg focus:outline-none"
+            className="lg:hidden p-1.5 sm:p-2 text-neutral-800 dark:text-[#F7F4EF] hover:text-[#FFA000] dark:hover:text-[#FFA000] transition-colors rounded-lg focus:outline-none cursor-pointer"
             aria-label={mobileMenuOpen ? 'إغلاق القائمة' : 'فتح القائمة'}
             aria-expanded={mobileMenuOpen}
           >
@@ -134,7 +134,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenOrderModal, onOpenImageStu
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white dark:bg-[#0D0D0D] border-b border-neutral-200 dark:border-[#262626] px-5 py-4 transition-all shadow-xl animate-in fade-in slide-in-from-top-2 duration-200">
+        <div className="lg:hidden bg-white dark:bg-[#0D0D0D] border-b border-neutral-200 dark:border-[#262626] px-4 sm:px-6 py-4 transition-all shadow-2xl max-h-[82vh] overflow-y-auto animate-in fade-in slide-in-from-top-2 duration-200">
           {/* Quick theme toggle row in mobile drawer */}
           <div className="flex items-center justify-between pb-3 border-b border-neutral-100 dark:border-[#1E1E1E]">
             <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400">
@@ -143,7 +143,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenOrderModal, onOpenImageStu
             <ThemeToggle size="sm" showLabel={true} />
           </div>
 
-          <nav className="flex flex-col space-y-2.5 py-3">
+          <nav className="flex flex-col space-y-1.5 py-3">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -152,10 +152,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenOrderModal, onOpenImageStu
                   e.preventDefault();
                   handleNavClick(link.href);
                 }}
-                className="text-neutral-800 dark:text-[#F7F4EF] hover:text-[#FFA000] dark:hover:text-[#FFA000] font-semibold text-base py-1.5 flex items-center justify-between"
+                className="text-neutral-800 dark:text-[#F7F4EF] hover:text-[#FFA000] dark:hover:text-[#FFA000] font-bold text-base py-2 px-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-[#161616] flex items-center justify-between transition-colors"
               >
                 <span>{link.label}</span>
-                <span className="text-neutral-400 text-xs">←</span>
+                <span className="text-neutral-400 text-xs font-normal">←</span>
               </a>
             ))}
           </nav>
@@ -168,7 +168,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenOrderModal, onOpenImageStu
                   setMobileMenuOpen(false);
                   onOpenImageStudio();
                 }}
-                className="w-full bg-neutral-100 dark:bg-[#1A1A1A] hover:bg-[#FFA000] hover:text-[#0D0D0D] text-neutral-800 dark:text-[#F7F4EF] font-extrabold py-2.5 rounded-xl text-center border border-neutral-200 dark:border-[#2B2B2B] flex items-center justify-center gap-2 text-xs"
+                className="w-full bg-neutral-100 dark:bg-[#1A1A1A] hover:bg-[#FFA000] hover:text-[#0D0D0D] text-neutral-800 dark:text-[#F7F4EF] font-extrabold py-3 rounded-xl text-center border border-neutral-200 dark:border-[#2B2B2B] flex items-center justify-center gap-2 text-xs cursor-pointer active:scale-98"
               >
                 <Camera className="w-4 h-4 text-[#FFA000]" />
                 <span>استوديو تنظيم صور المتجر 📸</span>
@@ -180,7 +180,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenOrderModal, onOpenImageStu
                 setMobileMenuOpen(false);
                 onOpenOrderModal();
               }}
-              className="w-full bg-[#FFA000] text-[#0D0D0D] font-extrabold py-3 rounded-xl text-center shadow-md shadow-[#FFA000]/20"
+              className="w-full bg-[#FFA000] text-[#0D0D0D] font-extrabold py-3.5 rounded-xl text-center shadow-md shadow-[#FFA000]/20 cursor-pointer active:scale-98 text-sm"
             >
               اطلب الآن
             </button>
@@ -188,7 +188,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenOrderModal, onOpenImageStu
               href={BRAND.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 text-neutral-800 dark:text-[#F7F4EF] bg-neutral-100 dark:bg-[#1A1A1A] py-2.5 rounded-xl text-sm border border-neutral-200 dark:border-[#262626]"
+              className="w-full flex items-center justify-center gap-2 text-neutral-800 dark:text-[#F7F4EF] bg-neutral-100 dark:bg-[#1A1A1A] py-3 rounded-xl text-xs sm:text-sm font-bold border border-neutral-200 dark:border-[#262626]"
             >
               <MessageCircle className="w-4 h-4 text-[#25D366]" />
               <span>تواصل واتساب: {BRAND.phoneFormatted}</span>

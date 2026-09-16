@@ -86,6 +86,18 @@ export const ImageUploadModal: React.FC<ImageUploadModalProps> = ({
     }
   }, [selectedSlotKey, currentSlot, getImage]);
 
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   const filteredSlots = allSlots.filter((slot) => {
@@ -221,13 +233,13 @@ export const ImageUploadModal: React.FC<ImageUploadModalProps> = ({
             <label className="block text-xs font-bold text-neutral-600 dark:text-[#999999] mb-1.5">
               1. اختر القسم لتحديد الصورة:
             </label>
-            <div className="flex flex-wrap gap-1.5">
+            <div className="flex flex-wrap gap-1.5 overflow-x-auto pb-1 max-w-full">
               {categoryPills.map((pill) => (
                 <button
                   type="button"
                   key={pill.key}
                   onClick={() => setSelectedCategory(pill.key as any)}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer min-h-[32px] ${
                     selectedCategory === pill.key
                       ? 'bg-[#FFA000] text-[#0D0D0D] shadow-sm'
                       : 'bg-neutral-100 dark:bg-[#1E1E1E] text-neutral-600 dark:text-[#AAAAAA] hover:text-neutral-900 dark:hover:text-white'
@@ -247,7 +259,7 @@ export const ImageUploadModal: React.FC<ImageUploadModalProps> = ({
             <select
               value={selectedSlotKey}
               onChange={(e) => setSelectedSlotKey(e.target.value)}
-              className="w-full bg-neutral-50 dark:bg-[#1C1C1C] border border-neutral-200 dark:border-[#2D2D2D] rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-neutral-900 dark:text-[#F7F4EF] font-bold focus:ring-2 focus:ring-[#FFA000] outline-none"
+              className="w-full bg-neutral-50 dark:bg-[#1C1C1C] border border-neutral-200 dark:border-[#2D2D2D] rounded-xl px-3.5 py-2.5 text-base sm:text-sm text-neutral-900 dark:text-[#F7F4EF] font-bold focus:ring-2 focus:ring-[#FFA000] outline-none cursor-pointer"
             >
               {filteredSlots.map((slot) => {
                 const customized = isCustomized(slot.key);

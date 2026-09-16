@@ -33,24 +33,24 @@ export const RealGallerySection: React.FC<RealGallerySectionProps> = ({
           </p>
 
           {/* Instagram Highlights Direct Button */}
-          <div className="inline-flex flex-wrap items-center justify-center gap-3">
+          <div className="inline-flex flex-wrap items-center justify-center gap-3 max-w-full">
             <a
               href={BRAND.instagramHighlightsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 text-white font-black text-xs sm:text-sm shadow-md hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 group cursor-pointer"
+              className="inline-flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 text-white font-black text-xs sm:text-sm shadow-md hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 group cursor-pointer text-center max-w-full"
             >
-              <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-xs group-hover:rotate-12 transition-transform">
+              <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-xs group-hover:rotate-12 transition-transform shrink-0">
                 <Instagram className="w-3.5 h-3.5 text-white" />
               </div>
-              <span>شاهد آراء وتجارب الزبائن في هايلات انستغرام 🌟</span>
-              <ExternalLink className="w-3.5 h-3.5 opacity-80 group-hover:translate-x-[-2px] transition-transform" />
+              <span className="leading-normal">شاهد آراء وتجارب الزبائن في هايلات انستغرام 🌟</span>
+              <ExternalLink className="w-3.5 h-3.5 opacity-80 group-hover:translate-x-[-2px] transition-transform shrink-0" />
             </a>
           </div>
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {GALLERY_DEFAULT_ITEMS.map((item, idx) => {
             const currentImg = getImage(item.key, item.defaultImage);
 
@@ -103,7 +103,7 @@ export const RealGallerySection: React.FC<RealGallerySectionProps> = ({
         </div>
 
         {/* Action strip under gallery */}
-        <div className="mt-10 p-5 rounded-2xl bg-neutral-50 dark:bg-[#161616] border border-neutral-200 dark:border-[#262626] flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-right">
+        <div className="mt-8 sm:mt-10 p-4 sm:p-5 rounded-2xl bg-neutral-50 dark:bg-[#161616] border border-neutral-200 dark:border-[#262626] flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-right">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-500 to-pink-500 text-white flex items-center justify-center shrink-0 shadow-sm">
               <Instagram className="w-5 h-5" />
@@ -118,12 +118,12 @@ export const RealGallerySection: React.FC<RealGallerySectionProps> = ({
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5 shrink-0 flex-wrap justify-center">
+          <div className="flex items-center gap-2.5 shrink-0 flex-wrap justify-center w-full sm:w-auto">
             <a
               href={BRAND.instagramHighlightsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-xl hover:opacity-95 transition-all cursor-pointer"
+              className="inline-flex items-center gap-1.5 bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 font-extrabold text-xs sm:text-sm px-4 sm:px-5 py-2.5 rounded-xl hover:opacity-95 transition-all cursor-pointer flex-1 sm:flex-initial justify-center"
             >
               <span>فتح الهايلات</span>
               <ExternalLink className="w-3.5 h-3.5" />
@@ -132,7 +132,7 @@ export const RealGallerySection: React.FC<RealGallerySectionProps> = ({
             <button
               type="button"
               onClick={onOpenOrderModal}
-              className="bg-[#FFA000] hover:bg-[#e68a00] text-[#0D0D0D] font-extrabold text-xs sm:text-sm px-6 py-2.5 rounded-xl shadow-md shadow-[#FFA000]/20 active:scale-95 transition-all cursor-pointer whitespace-nowrap"
+              className="bg-[#FFA000] hover:bg-[#e68a00] text-[#0D0D0D] font-extrabold text-xs sm:text-sm px-5 sm:px-6 py-2.5 rounded-xl shadow-md shadow-[#FFA000]/20 active:scale-95 transition-all cursor-pointer whitespace-nowrap flex-1 sm:flex-initial justify-center"
             >
               اطلب قطعتك الآن
             </button>

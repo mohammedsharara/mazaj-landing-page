@@ -26,11 +26,11 @@ export const HowToOrderSection: React.FC<HowToOrderProps> = ({ onOpenOrderModal 
         </div>
 
         {/* 5-Step Order Flow */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 lg:gap-5 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5 mb-12">
           {ORDER_STEPS.map((item, idx) => (
             <div
               key={item.step}
-              className="bg-white dark:bg-[#171717] rounded-2xl p-5 border border-neutral-200 dark:border-[#262626] flex flex-col relative hover:border-[#FFA000]/60 dark:hover:border-[#FFA000]/50 shadow-sm transition-all duration-300"
+              className="bg-white dark:bg-[#171717] rounded-2xl p-4 sm:p-5 border border-neutral-200 dark:border-[#262626] flex flex-col relative hover:border-[#FFA000]/60 dark:hover:border-[#FFA000]/50 shadow-sm transition-all duration-300"
             >
               {/* Step indicator */}
               <div className="w-9 h-9 rounded-xl bg-amber-50 dark:bg-[#FFA000]/15 text-[#D97706] dark:text-[#FFA000] font-black font-['Plus_Jakarta_Sans',sans-serif] text-base flex items-center justify-center mb-4 border border-amber-200 dark:border-[#FFA000]/30 shadow-xs">
@@ -46,7 +46,7 @@ export const HowToOrderSection: React.FC<HowToOrderProps> = ({ onOpenOrderModal 
               </p>
 
               {idx < ORDER_STEPS.length - 1 && (
-                <div className="hidden md:block absolute -left-3 top-1/2 -translate-y-1/2 text-neutral-300 dark:text-[#333333] z-10">
+                <div className="hidden lg:block absolute -left-3 top-1/2 -translate-y-1/2 text-neutral-300 dark:text-[#333333] z-10">
                   <ArrowLeft className="w-4 h-4 rtl:rotate-180" />
                 </div>
               )}

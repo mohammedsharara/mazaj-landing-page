@@ -76,12 +76,12 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
         </div>
 
         {/* Category Navigation Pills */}
-        <div className="flex items-center justify-center gap-2 mb-10 flex-wrap">
+        <div className="flex items-center sm:justify-center gap-2 mb-8 overflow-x-auto pb-2 scrollbar-none max-w-full px-1">
           {categories.map((cat) => (
             <button
               key={cat.key}
               onClick={() => setActiveCategory(cat.key as any)}
-              className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-black transition-all cursor-pointer ${
+              className={`px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-black transition-all cursor-pointer shrink-0 whitespace-nowrap ${
                 activeCategory === cat.key
                   ? 'bg-[#FFA000] text-[#0D0D0D] shadow-md shadow-[#FFA000]/25'
                   : 'bg-white dark:bg-[#1A1A1A] text-neutral-600 dark:text-[#A5A5A5] hover:text-neutral-900 dark:hover:text-[#F7F4EF] border border-neutral-200 dark:border-[#2B2B2B]'
@@ -93,7 +93,7 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
           {filteredProducts.map((product) => (
             <ProductCard
               key={product.id}

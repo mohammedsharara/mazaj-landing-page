@@ -86,8 +86,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       </div>
 
       {/* Product Details Content */}
-      <div className="p-5 flex flex-col flex-1">
-        <h3 className="font-bold text-base sm:text-lg text-neutral-900 dark:text-[#F7F4EF] leading-snug mb-2">
+      <div className="p-4 sm:p-5 flex flex-col flex-1">
+        <h3 className="font-extrabold text-base sm:text-lg text-neutral-900 dark:text-[#F7F4EF] leading-snug mb-2">
           {product.name}
         </h3>
 
@@ -108,9 +108,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
           {/* Colors if available - interactive switcher when colorImages available */}
           {product.colors && product.colors.length > 0 && (
-            <div className="flex items-center justify-between py-1 border-b border-neutral-100 dark:border-[#202020]">
+            <div className="flex items-center justify-between py-1 border-b border-neutral-100 dark:border-[#202020] flex-wrap gap-1">
               <span className="text-neutral-500 dark:text-[#888888]">الألوان:</span>
-              <div className="flex items-center gap-1 flex-wrap justify-end">
+              <div className="flex items-center gap-1.5 flex-wrap justify-end">
                 {product.colors.map((c) => {
                   const hasCustomImage = product.colorImages && product.colorImages[c];
                   const isSelected = selectedColor === c;
@@ -119,7 +119,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                       type="button"
                       key={c}
                       onClick={() => setSelectedColor(c)}
-                      className={`px-2 py-0.5 rounded text-[10px] font-bold transition-all cursor-pointer ${
+                      className={`px-2.5 py-1 rounded-md text-[11px] font-bold transition-all cursor-pointer min-h-[26px] ${
                         isSelected
                           ? 'bg-[#FFA000] text-[#0D0D0D] shadow-xs'
                           : 'bg-neutral-100 dark:bg-[#222222] text-neutral-700 dark:text-[#CCCCCC] hover:border-neutral-400'
@@ -135,13 +135,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           )}
 
           {/* Sizes */}
-          <div className="flex items-center justify-between py-1">
+          <div className="flex items-center justify-between py-1 flex-wrap gap-1">
             <span className="text-neutral-500 dark:text-[#888888]">القياسات:</span>
             <div className="flex items-center gap-1 flex-wrap justify-end">
               {product.sizes.slice(0, 7).map((s) => (
                 <span
                   key={s}
-                  className="bg-neutral-100 dark:bg-[#202020] text-neutral-800 dark:text-[#F7F4EF] px-1.5 py-0.5 rounded text-[10px] font-bold font-['Plus_Jakarta_Sans',sans-serif]"
+                  className="bg-neutral-100 dark:bg-[#202020] text-neutral-800 dark:text-[#F7F4EF] px-1.5 py-0.5 rounded text-[10px] sm:text-[11px] font-bold font-['Plus_Jakarta_Sans',sans-serif]"
                 >
                   {s}
                 </span>
@@ -197,7 +197,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         )}
 
         {/* Pricing Footer & CTA */}
-        <div className="mt-auto pt-4 border-t border-neutral-100 dark:border-[#262626] flex items-center justify-between gap-3">
+        <div className="mt-auto pt-4 border-t border-neutral-100 dark:border-[#262626] flex items-center justify-between gap-2.5">
           <div>
             <span className="text-[11px] text-neutral-500 dark:text-[#888888] block">يبدأ من</span>
             <span className="text-lg sm:text-xl font-black text-[#FFA000] tracking-tight">
@@ -207,9 +207,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
           <button
             onClick={() => onSelectProductForOrder(product)}
-            className="bg-[#FFA000] hover:bg-[#e68a00] text-[#0D0D0D] font-black text-xs sm:text-sm px-4 py-2.5 rounded-xl transition-all duration-200 flex items-center gap-1.5 active:scale-95 cursor-pointer shadow-md shadow-[#FFA000]/20"
+            className="bg-[#FFA000] hover:bg-[#e68a00] text-[#0D0D0D] font-black text-xs sm:text-sm px-3.5 sm:px-4 py-2.5 rounded-xl transition-all duration-200 flex items-center gap-1.5 active:scale-95 cursor-pointer shadow-md shadow-[#FFA000]/20 shrink-0"
           >
-            <ShoppingBag className="w-4 h-4" />
+            <ShoppingBag className="w-4 h-4 shrink-0" />
             <span>اطلب الآن</span>
           </button>
         </div>

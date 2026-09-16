@@ -137,14 +137,14 @@ export const SizeGuideSection: React.FC<SizeGuideSectionProps> = ({ onOpenOrderM
         </div>
 
         {/* The Simplified Form Card */}
-        <div className="bg-neutral-50 dark:bg-[#161616] border border-neutral-200 dark:border-[#262626] rounded-3xl p-6 sm:p-8 shadow-sm">
+        <div className="bg-neutral-50 dark:bg-[#161616] border border-neutral-200 dark:border-[#262626] rounded-3xl p-4 sm:p-8 shadow-sm">
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-6">
             
             {/* 1. Height Input */}
             <div>
               <label htmlFor="user-height" className="block text-xs sm:text-sm font-bold text-neutral-800 dark:text-[#F7F4EF] mb-2 flex items-center gap-1.5">
-                <Ruler className="w-4 h-4 text-[#FFA000]" />
+                <Ruler className="w-4 h-4 text-[#FFA000] shrink-0" />
                 <span>طولك (سم):</span>
               </label>
               <div className="relative">
@@ -154,9 +154,9 @@ export const SizeGuideSection: React.FC<SizeGuideSectionProps> = ({ onOpenOrderM
                   value={heightInput}
                   onChange={(e) => setHeightInput(e.target.value)}
                   placeholder="مثال: 175"
-                  className="w-full bg-white dark:bg-[#1F1F1F] border-2 border-neutral-200 dark:border-[#333333] focus:border-[#FFA000] dark:focus:border-[#FFA000] rounded-2xl px-4 py-3.5 text-base font-black text-neutral-900 dark:text-[#F7F4EF] focus:outline-none transition-colors"
+                  className="w-full bg-white dark:bg-[#1F1F1F] border-2 border-neutral-200 dark:border-[#333333] focus:border-[#FFA000] dark:focus:border-[#FFA000] rounded-2xl px-4 py-3 text-base font-black text-neutral-900 dark:text-[#F7F4EF] focus:outline-none transition-colors"
                 />
-                <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-neutral-400">
+                <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-neutral-400 pointer-events-none">
                   سم
                 </span>
               </div>
@@ -165,7 +165,7 @@ export const SizeGuideSection: React.FC<SizeGuideSectionProps> = ({ onOpenOrderM
             {/* 2. Weight Input */}
             <div>
               <label htmlFor="user-weight" className="block text-xs sm:text-sm font-bold text-neutral-800 dark:text-[#F7F4EF] mb-2 flex items-center gap-1.5">
-                <Weight className="w-4 h-4 text-[#FFA000]" />
+                <Weight className="w-4 h-4 text-[#FFA000] shrink-0" />
                 <span>وزنك (كغ):</span>
               </label>
               <div className="relative">
@@ -175,16 +175,16 @@ export const SizeGuideSection: React.FC<SizeGuideSectionProps> = ({ onOpenOrderM
                   value={weightInput}
                   onChange={(e) => setWeightInput(e.target.value)}
                   placeholder="مثال: 75"
-                  className="w-full bg-white dark:bg-[#1F1F1F] border-2 border-neutral-200 dark:border-[#333333] focus:border-[#FFA000] dark:focus:border-[#FFA000] rounded-2xl px-4 py-3.5 text-base font-black text-neutral-900 dark:text-[#F7F4EF] focus:outline-none transition-colors"
+                  className="w-full bg-white dark:bg-[#1F1F1F] border-2 border-neutral-200 dark:border-[#333333] focus:border-[#FFA000] dark:focus:border-[#FFA000] rounded-2xl px-4 py-3 text-base font-black text-neutral-900 dark:text-[#F7F4EF] focus:outline-none transition-colors"
                 />
-                <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-neutral-400">
+                <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-neutral-400 pointer-events-none">
                   كغ
                 </span>
               </div>
             </div>
 
             {/* 3. Garment Selection */}
-            <div>
+            <div className="sm:col-span-2 md:col-span-1">
               <label htmlFor="garment-select" className="block text-xs sm:text-sm font-bold text-neutral-800 dark:text-[#F7F4EF] mb-2">
                 نوع القطعة المطلوبة:
               </label>
@@ -192,7 +192,7 @@ export const SizeGuideSection: React.FC<SizeGuideSectionProps> = ({ onOpenOrderM
                 id="garment-select"
                 value={selectedProductId}
                 onChange={(e) => setSelectedProductId(e.target.value)}
-                className="w-full bg-white dark:bg-[#1F1F1F] border-2 border-neutral-200 dark:border-[#333333] focus:border-[#FFA000] dark:focus:border-[#FFA000] rounded-2xl px-3.5 py-3.5 text-xs sm:text-sm font-bold text-neutral-900 dark:text-[#F7F4EF] focus:outline-none transition-colors cursor-pointer"
+                className="w-full bg-white dark:bg-[#1F1F1F] border-2 border-neutral-200 dark:border-[#333333] focus:border-[#FFA000] dark:focus:border-[#FFA000] rounded-2xl px-3.5 py-3 text-base sm:text-sm font-bold text-neutral-900 dark:text-[#F7F4EF] focus:outline-none transition-colors cursor-pointer"
               >
                 {PRODUCTS.map((prod) => (
                   <option key={prod.id} value={prod.id}>
@@ -205,22 +205,22 @@ export const SizeGuideSection: React.FC<SizeGuideSectionProps> = ({ onOpenOrderM
           </div>
 
           {/* Result Card */}
-          <div className="p-5 rounded-2xl bg-white dark:bg-[#1B1B1B] border border-neutral-200 dark:border-[#2C2C2C] flex flex-col sm:flex-row items-center justify-between gap-5 mb-6">
-            <div className="flex items-center gap-4 text-right">
-              <div className="w-14 h-14 rounded-2xl bg-amber-50 dark:bg-[#FFA000]/15 border border-amber-200/80 dark:border-[#FFA000]/30 flex flex-col items-center justify-center shrink-0">
-                <span className="text-[10px] text-[#D97706] dark:text-[#FFA000] font-bold">المقاس</span>
-                <span className="text-xl font-black text-neutral-900 dark:text-[#FFA000] leading-none">
+          <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#1B1B1B] border border-neutral-200 dark:border-[#2C2C2C] flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-5 mb-6">
+            <div className="flex items-center gap-3.5 sm:gap-4 text-right w-full sm:w-auto">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-50 dark:bg-[#FFA000]/15 border border-amber-200/80 dark:border-[#FFA000]/30 flex flex-col items-center justify-center shrink-0">
+                <span className="text-[9px] sm:text-[10px] text-[#D97706] dark:text-[#FFA000] font-bold">المقاس</span>
+                <span className="text-lg sm:text-xl font-black text-neutral-900 dark:text-[#FFA000] leading-none">
                   {calculation.size.split(' ')[0]}
                 </span>
               </div>
-              <div>
-                <div className="flex items-center gap-2 mb-1">
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-1 flex-wrap">
                   <span className="text-xs font-bold text-neutral-500 dark:text-[#888888]">المقاس المقترح لجسمك:</span>
-                  <span className="text-sm font-black text-neutral-900 dark:text-[#F7F4EF]">
+                  <span className="text-xs sm:text-sm font-black text-neutral-900 dark:text-[#F7F4EF]">
                     {calculation.size}
                   </span>
                 </div>
-                <p className="text-xs text-neutral-600 dark:text-[#A5A5A5]">
+                <p className="text-xs text-neutral-600 dark:text-[#A5A5A5] leading-relaxed">
                   {calculation.description}
                 </p>
               </div>
@@ -228,10 +228,10 @@ export const SizeGuideSection: React.FC<SizeGuideSectionProps> = ({ onOpenOrderM
 
             <button
               onClick={handleOpenModal}
-              className="w-full sm:w-auto bg-[#FFA000] hover:bg-[#e68a00] text-[#0D0D0D] font-black text-sm px-6 py-3.5 rounded-xl transition-all shadow-md shadow-[#FFA000]/25 flex items-center justify-center gap-2 shrink-0 cursor-pointer active:scale-95"
+              className="w-full sm:w-auto bg-[#FFA000] hover:bg-[#e68a00] text-[#0D0D0D] font-black text-xs sm:text-sm px-5 sm:px-6 py-3.5 rounded-xl transition-all shadow-md shadow-[#FFA000]/25 flex items-center justify-center gap-2 shrink-0 cursor-pointer active:scale-95"
             >
               <span>طلب هذا القياس الآن</span>
-              <Send className="w-4 h-4" />
+              <Send className="w-4 h-4 shrink-0" />
             </button>
           </div>
 
