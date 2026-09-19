@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ProductCategory, ProductItem } from '../types';
 import { PRODUCTS } from '../data/content';
-import { Sparkles, Info, Camera, ImagePlus } from 'lucide-react';
+import { Sparkles, Info, Camera, ImagePlus, AlertCircle, Gift, Truck, Shuffle, Lock } from 'lucide-react';
 import { ProductCard } from './ProductCard';
 import { ImageUploadModal } from './ImageUploadModal';
 
@@ -91,6 +91,69 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
             </button>
           ))}
         </div>
+
+        {/* ── Hoodies Notice Banner ─────────────────────────────────────────── */}
+        {activeCategory === 'hoodies' && (
+          <div className="mb-8 rounded-2xl overflow-hidden border border-amber-300/40 dark:border-[#FFA000]/20 shadow-lg shadow-amber-500/5">
+            {/* Header strip */}
+            <div className="flex items-center gap-3 px-5 py-3.5 bg-gradient-to-r from-amber-500 to-[#FF6B00] text-[#0D0D0D]">
+              <Lock className="w-4 h-4 shrink-0" />
+              <span className="font-black text-sm tracking-wide">الهوديات الشتوية — خيارات الطلب</span>
+            </div>
+
+            <div className="bg-amber-50/80 dark:bg-[#141200] px-5 py-5 space-y-5">
+
+              {/* Unavailable notice */}
+              <div className="flex items-start gap-3 bg-red-50 dark:bg-[#1A0A0A] border border-red-200/60 dark:border-red-800/40 rounded-xl px-4 py-3.5">
+                <AlertCircle className="w-5 h-5 text-red-500 dark:text-red-400 shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-black text-sm text-red-700 dark:text-red-400 mb-0.5">🚫 الهوديات غير متوفرة حالياً</p>
+                  <p className="text-xs text-red-600/80 dark:text-red-500/80 leading-relaxed">
+                    الطلب على الهوديات الشتوية (بتصميمك الخاص) غير متاح في الوقت الحالي. تابعونا لمعرفة موعد إعادة الفتح.
+                  </p>
+                </div>
+              </div>
+
+              {/* Available offer */}
+              <div className="flex items-start gap-3 bg-emerald-50 dark:bg-[#081A0E] border border-emerald-200/60 dark:border-emerald-800/40 rounded-xl px-4 py-3.5">
+                <Gift className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-black text-sm text-emerald-800 dark:text-emerald-300 mb-0.5">✅ المتاح حالياً — عرض 3 هوديات بتصاميم عشوائية</p>
+                  <p className="text-xs text-emerald-700/80 dark:text-emerald-400/80 leading-relaxed mb-3">
+                    نوفر <span className="font-black">3 هوديات شتوية</span> بتصاميم عشوائية من اختيارنا حصراً، بخامة قطن مبطن صوف فاخر وضمان 3 سنوات — والقياس من اختيارك أنت.
+                  </p>
+
+                  {/* Offer details chips */}
+                  <div className="flex flex-wrap gap-2">
+                    <span className="inline-flex items-center gap-1.5 bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300 text-xs font-black px-3 py-1.5 rounded-full border border-emerald-200 dark:border-emerald-700/50">
+                      <Shuffle className="w-3 h-3" />
+                      3 تصاميم عشوائية — من اختيارنا حصراً
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-[#FFA000] text-xs font-black px-3 py-1.5 rounded-full border border-amber-200 dark:border-amber-700/40">
+                      <Gift className="w-3 h-3" />
+                      السعر: 45,000 د.ع شامل التوصيل
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-black px-3 py-1.5 rounded-full border border-blue-200 dark:border-blue-700/40">
+                      <Truck className="w-3 h-3" />
+                      توصيل مجاني 🚀
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTA */}
+              <a
+                href="https://wa.me/9647733300533"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-[#FF6B00] hover:from-amber-400 hover:to-[#FF5500] text-[#0D0D0D] font-black text-sm shadow-md shadow-amber-500/20 transition-all active:scale-95 hover:shadow-lg hover:shadow-amber-500/30"
+              >
+                <Gift className="w-4 h-4" />
+                اطلب العرض — 3 هوديات عشوائية بـ 45,000 د.ع شامل التوصيل
+              </a>
+            </div>
+          </div>
+        )}
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
